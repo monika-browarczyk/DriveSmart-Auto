@@ -1,0 +1,110 @@
+h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+p {
+    margin: 10px 0 0;
+    font-size: 16px;
+}
+
+body {
+    padding-top: 170px;
+}
+
+#footer {
+    margin-top: 80px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px !important;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(4, 47, 61);
+    opacity: 0.9 !important;
+    top: 50% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border: none;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carousel-control-prev-icon {
+    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" fill%3D"%23fff" viewBox%3D"0 0 8 8"%3E%3Cpath d%3D"M5 1L2 4l3 3V1z"%3E%3C%2Fpath%3E%3C%2Fsvg%3E');
+}
+
+.carousel-control-next-icon {
+    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" fill%3D"%23fff" viewBox%3D"0 0 8 8"%3E%3Cpath d%3D"M3 1L6 4 3 7V1z"%3E%3C%2Fpath%3E%3C%2Fsvg%3E');
+}
+
+.aspect-ratio {
+    position: relative;
+    width: 100%;
+    padding-bottom: 50%;
+}
+
+.aspect-ratio img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container {
+    max-width: 1320px !important;
+    margin: 0 auto;
+}
+
+.fixed-button {
+    position: fixed;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
