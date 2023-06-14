@@ -37,20 +37,24 @@
         $mysql = new mysqli("localhost", "root", '', "wprg-project");
         if (isset($_GET["search"])) {
             $search = $_GET["search"];
-            $stmt = $mysql->prepare("SELECT * FROM roles WHERE Name LIKE ? OR Permission LIKE ? ORDER BY Name");
+            $stmt = $mysql->prepare("SELECT users.UserID, users.Login, users.Employees_EmployeeID, users.Roles_RolesID, roles.Name FROM users
+                LEFT JOIN roles ON users.Roles_RolesID = roles.RolesID
+                WHERE Login LIKE ? OR Name LIKE ? OR Employees_EmployeeID = ? ORDER BY Login");
             $searchParam = "$search%";
-            $stmt->bind_param("ss", $searchParam, $searchParam);
+            $stmt->bind_param("ssi", $searchParam, $searchParam, $search);
             $stmt->execute();
             $result = $stmt->get_result();
         } else {
-            $result = $mysql->query("SELECT * FROM roles ORDER BY Name");
+            $result = $mysql->query("SELECT users.UserID, users.Login, users.Roles_RolesID, users.Employees_EmployeeID, roles.Name FROM users
+                LEFT JOIN roles ON users.Roles_RolesID = roles.RolesID
+                ORDER BY Login");
         }
         while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row["Name"] . "</td><td>" . $row["Permission"] . "</td>";
-            echo '<td><a href="single-view/view_single_role.php?id=' . $row["RolesID"] . '" class="btn btn-info btn-sm">Zobacz</a></td>';
+            echo "<tr><td>" . $row["Login"] . "</td><td>" . $row["Name"] . "</td>" . "<td>" . $row["Employees_EmployeeID"] . "</td>";
+            echo '<td><a href="single-view/view_single_user.php?id=' . $row["UserID"] . '" class="btn btn-info btn-sm">Zobacz</a></td>';
             if ($_SESSION['logged'] == '1' || $_SESSION['logged'] == '2') {
-                echo '<td><a href="single-edit/edit_single_role.php?id=' . $row["RolesID"] . '" class="btn btn-warning btn-sm">Edytuj</a></td>';
-                echo '<td><a href="single-delete/delete_single_role.php?id=' . $row["RolesID"] . '" class="btn btn-danger btn-sm">Usuń</a></td></tr>';
+                echo '<td><a href="single-edit/edit_single_user.php?id=' . $row["UserID"] . '" class="btn btn-warning btn-sm">Edytuj</a></td>';
+                echo '<td><a href="single-delete/delete_single_user.php?id=' . $row["UserID"] . '" class="btn btn-danger btn-sm">Usuń</a></td></tr>';
             }
         }
         ?>

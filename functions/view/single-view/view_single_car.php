@@ -58,7 +58,7 @@
             <td><?php echo($row["Manufacturer_name"] ? $row["Manufacturer_name"] : "brak") ?></td>
         </tr>
         <tr>
-            <td>Kategorie:</td>
+            <td>Kategoria:</td>
             <td><?php echo($row["Category_name"] ? $row["Category_name"] : "brak") ?></td>
         </tr>
         </tbody>
