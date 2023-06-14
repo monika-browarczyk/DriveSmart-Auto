@@ -5,26 +5,26 @@ if (isset($_GET["id"])) {
     $id = $_GET["id"];
 
     if (isset($_GET["confirm"])) {
-        $stmt = $mysql->prepare("DELETE FROM categories WHERE CategoryID = ?");
+        $stmt = $mysql->prepare("DELETE FROM roles WHERE RolesID = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
 
-        header("Location: /functions/view/view_categories.php");
+        header("Location: /functions/view/view_roles.php");
         exit();
     } else {
-        $stmt = $mysql->prepare("SELECT *  FROM categories WHERE CategoryID = ?");
+        $stmt = $mysql->prepare("SELECT * FROM roles WHERE RolesID = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
 
         if (!$row) {
-            header("Location: /functions/view/view_categories.php");
+            header("Location: /functions/view/view_roles.php");
             exit();
         }
     }
 } else {
-    header("Location: /functions/view/view_categories.php");
+    header("Location: /functions/view/view_roles.php");
     exit();
 }
 ?>
@@ -37,12 +37,12 @@ if (isset($_GET["id"])) {
 </head>
 <body>
 <div class="container py-5 mx-auto">
-    <p>Czy na pewno chcesz usunąć kategorię <?php echo $row["Name"] . " "; ?>?</p>
+    <p>Czy na pewno chcesz usunąć role <?php echo $row["Name"] . " "; ?>?</p>
     <form method="GET" action="">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
         <input type="hidden" name="confirm" value="1">
         <button type="submit" class="btn btn-danger">Tak</button>
-        <a href="/functions/view/view_categories.php" class="btn btn-secondary">Anuluj</a>
+        <a href="/functions/view/view_roles.php" class="btn btn-secondary">Anuluj</a>
     </form>
 </div>
 </body>
