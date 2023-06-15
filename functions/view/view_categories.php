@@ -44,11 +44,9 @@
                                 JOIN cars ON categories.CategoryID = cars.CategoryID
                                 WHERE categories.Name LIKE ?
                                 GROUP BY categories.CategoryID
-                                HAVING Ilosc_samochodow >= ?
                                 ORDER BY Ilosc_samochodow;");
             $searchParam = "$search%";
-            $minimumCars = 1;
-            $stmt->bind_param("si", $searchParam, $minimumCars);
+            $stmt->bind_param("s", $searchParam);
             $stmt->execute();
             $result = $stmt->get_result();
         } else {

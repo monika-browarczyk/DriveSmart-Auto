@@ -24,6 +24,8 @@ if (isset($_POST['submit-view'])) {
         exit;
     } elseif ($option == 'employees') {
         header("Location: /functions/view/view_employees.php");
+    } elseif ($option == 'addresses') {
+        header("Location: /functions/view/view_addresses.php");
     }
 }
 ?>
@@ -37,9 +39,9 @@ if (isset($_POST['submit-view'])) {
 <body>
 <h1 class="text-center my-5 px3">Panel administracyjny</h1>
 <h4 class="text-center my-5 px3">Jesteś zalogowany jako:
-    <?php if($_SESSION['role'] == 'admin') {
+    <?php if($_SESSION['logged'] == 1) {
         echo "Administrator";
-    } elseif ($_SESSION['role'] = 'moderator') {
+    } elseif ($_SESSION['logged'] = 2) {
         echo "Moderator";
     } else {
         echo "Użytkownik";
@@ -52,11 +54,13 @@ if (isset($_POST['submit-view'])) {
             <option value="cars">Podgląd samochodów</option>
             <option value="clients">Podgląd klientów</option>
             <option value="categories">Podgląd kategorii</option>
-            <option value="manufacturers">Podgląd firm</option>
-            <?php if ($_SESSION['role'] == 'admin') { ?>
+            <option value="manufacturers">Podgląd producentów</option>
+            <option value="employees">Podgląd pracowników</option>
+            <?php if ($_SESSION['logged'] == 1) { ?>
             <option value="roles">Podgląd ról</option>
             <option value="users">Podgląd użytkowników</option>
             <option value="employees">Podgląd pracowników</option>
+            <option value="addresses">Podgląd adresów</option>
      <?php } ?>
         </select>
         <button class="btn btn-primary mt-2" type="submit" name="submit-view">Wybierz</button>
