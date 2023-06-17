@@ -43,7 +43,7 @@
         </tbody>
     </table>
 
-    <a class="btn btn-secondary" href="view_addresses.php">Powrót</a>
+    <a class="btn btn-secondary" href="/functions/view/view_addresses.php">Powrót</a>
 </div>
 </body>
 </html>

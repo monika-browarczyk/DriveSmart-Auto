@@ -51,16 +51,15 @@ if (isset($_POST['submit-view'])) {
     <div class="container my-5 px3">
         <label for="option-view">Wybierz opcję do wyświetlenia:</label>
         <select class="form-control" name="option-view" id="option-view">
-            <option value="cars">Podgląd samochodów</option>
-            <option value="clients">Podgląd klientów</option>
             <option value="categories">Podgląd kategorii</option>
+            <option value="clients">Podgląd klientów</option>
+            <option value="employees">Podgląd pracowników</option>
             <option value="manufacturers">Podgląd producentów</option>
-            <option value="employees">Podgląd pracowników</option>
+            <option value="cars">Podgląd samochodów</option>
             <?php if ($_SESSION['logged'] == 1) { ?>
-            <option value="roles">Podgląd ról</option>
-            <option value="users">Podgląd użytkowników</option>
-            <option value="employees">Podgląd pracowników</option>
-            <option value="addresses">Podgląd adresów</option>
+                <option value="addresses">Podgląd adresów</option>
+                <option value="roles">Podgląd ról</option>
+                <option value="users">Podgląd użytkowników</option>
      <?php } ?>
         </select>
         <button class="btn btn-primary mt-2" type="submit" name="submit-view">Wybierz</button>

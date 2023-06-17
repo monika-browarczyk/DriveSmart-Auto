@@ -74,9 +74,9 @@
                 ?>
             </td>
         </tr>
-        <a href="/functions/view/view_clients.php" class="btn btn-secondary">Powrót</a>
         </tbody>
     </table>
+    <a href="/functions/view/view_clients.php" class="btn btn-secondary">Powrót</a>
 </div>
 </body>
 </html>
