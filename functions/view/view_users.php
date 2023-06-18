@@ -1,3 +1,7 @@
+<?php
+global $mysql;
+include("../config.php");
+?>
 <html lang="pl">
 <head>
     <title>Lab10</title>
@@ -34,7 +38,6 @@
         </thead>
         <tbody>
         <?php
-        $mysql = new mysqli("localhost", "root", '', "wprg-project");
         if (isset($_GET["search"])) {
             $search = $_GET["search"];
             $stmt = $mysql->prepare("SELECT users.UserID, users.Login, users.Employees_EmployeeID, users.Roles_RolesID, roles.Name FROM users

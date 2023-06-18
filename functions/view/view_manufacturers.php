@@ -1,10 +1,11 @@
 <?php
+global $mysql;
+include("../config.php");
+
 if(!isset($_SESSION)){
     session_start();
 }
 session_regenerate_id();
-$mysql = new mysqli("localhost", "root", '', "wprg-project");
-
 if (isset($_GET["search"])) {
     $search = $_GET["search"];
     $stmt = $mysql->prepare("SELECT manufacturers.ManufacturerID, manufacturers.Manufacturer_name, COUNT(cars.CarID) AS CarCount

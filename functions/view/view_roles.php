@@ -1,3 +1,7 @@
+<?php
+global $mysql;
+include("../config.php");
+?>
 <html lang="pl">
 <head>
     <title>Lab10</title>
@@ -33,7 +37,6 @@
         </thead>
         <tbody>
         <?php
-        $mysql = new mysqli("localhost", "root", '', "wprg-project");
         if (isset($_GET["search"])) {
             $search = $_GET["search"];
             $stmt = $mysql->prepare("SELECT * FROM roles WHERE Name LIKE ? OR Permission LIKE ? ORDER BY Name");

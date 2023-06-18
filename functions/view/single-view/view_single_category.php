@@ -14,7 +14,7 @@ include("../../config.php");
         <?php
         $id = $_GET["id"];
         $stmt = $mysql->prepare("SELECT COUNT(cars.CarID) as Ilosc_samochodow, categories.Name, categories.CategoryID, categories.Description FROM categories
-                                        JOIN cars ON categories.CategoryID = cars.CategoryID
+                                        JOIN cars ON categories.Cate
                                         GROUP BY categories.CategoryID
                                         HAVING categories.CategoryID = ?
                                         ORDER BY Ilosc_samochodow;");
