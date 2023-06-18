@@ -1,3 +1,7 @@
+<?php
+global $mysql;
+include("../config.php");
+?>
 <html lang="pl">
 <head>
     <title>Lab10</title>
@@ -37,7 +41,6 @@
             session_start();
         }
         session_regenerate_id();
-        $mysql = new mysqli("localhost", "root", '', "wprg-project");
         if (isset($_GET["search"])) {
             $search = $_GET["search"];
             $stmt = $mysql->prepare("SELECT COUNT(cars.CarID) as Ilosc_samochodow, categories.Name, categories.CategoryID FROM categories

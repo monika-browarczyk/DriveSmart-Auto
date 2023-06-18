@@ -1,15 +1,21 @@
+<?php
+global $mysql;
+include("../../config.php");
+include '../../../header.php';
+
+?>
+
 <html lang="pl">
 <head>
     <title>Informacje o samochodzie</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootst`rapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container w-50 my-5 mx-auto">
-    <a class="btn btn-info mb-5" href="/index.html" type="button"><- Strona Główna</a>
-    <h1>Dane o samochodzie:
+    <a class="btn btn-info mb-5" href="/index.php" type="button"><- Strona Główna</a>
+    <h1>Dane o samochodzie:`
         <?php
         $id = $_GET["id"];
-        $mysql = new mysqli("localhost", "root", '', "wprg-project");
         $stmt = $mysql->prepare("SELECT cars.CarID, cars.Model, cars.Production_year, cars.Mileage, cars.Engine_capacity, cars.Fuel_type, cars.Price, 
        manufacturers.Manufacturer_name, categories.Name as Category_name FROM `cars` 
                                 LEFT JOIN manufacturers ON cars.Manufacturers_ManufacturerID = manufacturers.ManufacturerID
@@ -19,6 +25,15 @@
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
+
+        //prepared statement fod displaying emploqee name
+        $select_offer_manager = $mysql->prepare("SELECT employees.First_name, employees.Last_name FROM `employees` 
+                                JOIN offers ON employees.EmployeeID = offers.Employees_EmployeeID
+                                WHERE offers.CarID = ? ORDER BY offers.CarID;");
+        $select_offer_manager->bind_param("i", $id);
+        $select_offer_manager->execute();
+        $row2 = $select_offer_manager->get_result()->fetch_assoc();
+
         echo $row["Manufacturer_name"] . " " . $row["Model"];
         ?>
     </h1>
@@ -61,6 +76,9 @@
             <td>Kategoria:</td>
             <td><?php echo($row["Category_name"] ? $row["Category_name"] : "brak") ?></td>
         </tr>
+        <tr>
+            <td>Opiekun oferty:</td>
+            <td><?php echo($row2["First_name"] ? "<a href='/functions/view/single-view/view_single_employee.php?id=" . $id . "'>" . $row2["First_name"] . " " . $row2["Last_name"] . "</a>" : "brak") ?></td>
         </tbody>
     </table>
 </div>

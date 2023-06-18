@@ -1,3 +1,7 @@
+<?php
+global $mysql;
+include("../../config.php");
+?>
 <html lang="pl">
 <head>
     <title>Pojedyncza osoba</title>
@@ -5,11 +9,10 @@
 </head>
 <body>
 <div class="container w-50 my-5 mx-auto">
-    <a class="btn btn-info mb-5" href="/index.html" type="button"><- Strona Główna</a>
+    <a class="btn btn-info mb-5" href="/index.php" type="button"><- Strona Główna</a>
     <h1>Dane osoby:
         <?php
         $id = $_GET["id"];
-        $mysql = new mysqli("localhost", "root", '', "wprg-project");
         $stmt = $mysql->prepare("SELECT COUNT(cars.CarID) as Ilosc_samochodow, categories.Name, categories.CategoryID, categories.Description FROM categories
                                         JOIN cars ON categories.CategoryID = cars.CategoryID
                                         GROUP BY categories.CategoryID

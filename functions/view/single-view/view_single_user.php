@@ -5,12 +5,11 @@
 </head>
 <body>
 <div class="container w-50 my-5 mx-auto">
-    <a class="btn btn-info mb-5" href="/index.html" type="button"><- Strona Główna</a>
+    <a class="btn btn-info mb-5" href="/index.php" type="button"><- Strona Główna</a>
     <h1>Dane o samochodzie:
         <?php
         $id = $_GET["id"];
-        $mysql = new mysqli("localhost", "root", '', "wprg-project");
-        $stmt = $mysql->prepare("SELECT users.Login, roles.Name as Role_name, employees.EmployeeID, employees.First_name, employees.Last_name FROM `users` 
+        include_once("../../config.php");        $stmt = $mysql->prepare("SELECT users.Login, roles.Name as Role_name, employees.EmployeeID, employees.First_name, employees.Last_name FROM `users` 
             LEFT JOIN employees ON users.Employees_EmployeeID = employees.EmployeeID
             LEFT JOIN roles ON users.Roles_RolesID = roles.RolesID
             WHERE UserID = ? 

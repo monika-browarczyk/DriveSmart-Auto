@@ -1,3 +1,7 @@
+<?php
+global $mysql;
+include("../../config.php");
+?>
 <html lang="pl">
 <head>
     <title>Edycja adresu</title>
@@ -5,12 +9,11 @@
 </head>
 <body>
 <div class="container w-50 my-5 mx-auto">
-    <a class="btn btn-info mb-5" href="/index.html" type="button"><- Strona Główna</a>
+    <a class="btn btn-info mb-5" href="/index.php" type="button"><- Strona Główna</a>
     <h1>Edycja adresu:</h1>
 
     <?php
     $addressID = $_GET["id"];
-    $mysql = new mysqli("localhost", "root", "", "wprg-project");
     $stmt = $mysql->prepare("SELECT * FROM Addresses WHERE AddressID = ?");
     $stmt->bind_param("i", $addressID);
     $stmt->execute();

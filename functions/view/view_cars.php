@@ -1,3 +1,9 @@
+<?php
+global $mysql;
+include("../config.php");
+?>
+
+
 <html lang="pl">
 <head>
     <title>Lab10</title>
@@ -34,7 +40,6 @@
         </thead>
         <tbody>
         <?php
-        $mysql = new mysqli("localhost", "root", '', "wprg-project");
         if (isset($_GET["search"])) {
             $search = $_GET["search"];
             $stmt = $mysql->prepare("SELECT cars.Model, manufacturers.Manufacturer_name, cars.CarID, categories.Name FROM Cars 

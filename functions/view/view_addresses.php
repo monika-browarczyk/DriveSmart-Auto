@@ -1,5 +1,6 @@
 <?php
-$mysql = new mysqli("localhost", "root", "", "wprg-project");
+global $mysql;
+include("../config.php");
 
 if (isset($_GET["search"])) {
     $search = $_GET["search"];

@@ -1,6 +1,5 @@
 <?php
-$mysql = new mysqli("localhost", "root", '', "wprg-project");
-
+include_once("../../config.php");
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
 

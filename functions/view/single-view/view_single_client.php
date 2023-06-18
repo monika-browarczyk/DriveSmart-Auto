@@ -1,3 +1,9 @@
+<?php
+global $mysql;
+include("../../config.php");
+
+?>
+
 <html lang="pl">
 <head>
     <title>Pojedyncza osoba</title>
@@ -5,16 +11,16 @@
 </head>
 <body>
 <div class="container w-50 my-5 mx-auto">
-    <a class="btn btn-info mb-5" href="/index.html" type="button"><- Strona Główna</a>
+    <a class="btn btn-info mb-5" href="/index.php" type="button"><- Strona Główna</a>
     <h1>Dane osoby:
         <?php
         $id = $_GET["id"];
-        $mysql = new mysqli("localhost", "root", '', "wprg-project");
         $stmt = $mysql->prepare("SELECT clients.ClientID, clients.First_name, clients.Last_name, clients.Telephone_number, clients.Email, Addresses.AddressID, Addresses.City, 
        Addresses.Street, Addresses.Street_number, Addresses.Post_code, offers.CarID FROM Clients 
                         LEFT JOIN addresses ON clients.Addresses_AddressID = Addresses.AddressID
                         JOIN offers ON clients.ClientID = offers.Clients_ClientID
                         WHERE clients.ClientID = ?");
+        var_dump($stmt);
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
