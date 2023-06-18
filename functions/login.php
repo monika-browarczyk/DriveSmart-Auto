@@ -1,4 +1,8 @@
 <?php
+global $mysql;
+global $db;
+include("./config.php");
+
 session_start();
 if(isset($_SESSION['logged'])) {
     header('Location: admin.php');
@@ -7,7 +11,6 @@ if (isset($_POST['zaloguj'])) {
     $login = $_POST['login'];
     $password = $_POST['password'];
 
-    $db = new PDO('mysql:host=localhost;dbname=wprg-project', 'root', '');
     $sth = $db->prepare('SELECT * FROM Users WHERE Login = :login limit 1');
     $sth->bindValue(':login', $login, PDO::PARAM_STR);
     $sth->execute();
