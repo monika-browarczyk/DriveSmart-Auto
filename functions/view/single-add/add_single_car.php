@@ -1,5 +1,6 @@
 <?php
-$mysql = new mysqli("localhost", "root", "", "wprg-project");
+global $mysql;
+include("../../config.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $model = $_POST["model"];

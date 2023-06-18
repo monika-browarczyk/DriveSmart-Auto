@@ -1,3 +1,8 @@
+<?php
+global $mysql;
+global $db;
+include("../../config.php");
+?>
 <html lang="pl">
 <head>
     <title>Dodaj użytkownika</title>
@@ -5,12 +10,11 @@
 </head>
 <body>
 <div class="container w-50 my-5 mx-auto">
-    <a class="btn btn-info mb-5" href="/index.html" type="button"><- Strona Główna</a>
+    <a class="btn btn-info mb-5" href="/index.php" type="button"><- Strona Główna</a>
     <h1>Dodaj użytkownika</h1>
 
     <?php
-    $mysql = new mysqli("localhost", "root", '', "wprg-project");
-
+    include_once("../../config.php");
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors = array();
 
@@ -43,7 +47,6 @@
         }
 
         if (empty($errors)) {
-            $db = new PDO('mysql:host=localhost;dbname=wprg-project', 'root', '');
             $sth = $db->prepare('INSERT INTO Users (Login, Password, Roles_RolesID, Employees_EmployeeID) VALUES (:login, :password, :role, :employeeID)');
             $sth->bindValue(':login', $login, PDO::PARAM_STR);
             $sth->bindValue(':password', $hashPassword, PDO::PARAM_STR);

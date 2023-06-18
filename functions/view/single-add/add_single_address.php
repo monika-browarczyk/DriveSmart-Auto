@@ -1,6 +1,5 @@
 <?php
-$mysql = new mysqli("localhost", "root", '', "wprg-project");
-
+include_once("../../config.php");
 $city = $street = $streetNumber = $postCode = "";
 $errors = [];
 

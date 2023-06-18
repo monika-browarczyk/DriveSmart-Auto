@@ -1,6 +1,5 @@
 <?php
-$mysql = new mysqli("localhost", "root", '', "wprg-project");
-
+include_once("../../config.php");
 if (isset($_POST["submit"])) {
     $manufacturerName = $_POST["manufacturer_name"];
     $registrationDate = $_POST["registration_date"];
