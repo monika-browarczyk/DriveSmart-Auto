@@ -1,9 +1,13 @@
-#header {
-    margin-bottom: 140px;
-}
-
 #footer {
     margin-top: 80px;
+}
+
+#slider{
+    width: 100vw;
+}
+
+body:not(.about-page):not(.home) header{
+    margin-bottom: 50px !important;
 }
 
 body {
@@ -233,4 +237,94 @@ textarea {
 
 .btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus, .show > .btn-danger.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
+}
+
+.about-section {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+}
+
+.about-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-content {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.team-section {
+    padding: 50px 0;
+}
+
+.team-member {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.team-member img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team-member-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.team-member-position {
+    font-size: 14px;
+    color: #888;
+}
+
+.contact-section {
+    padding: 50px 0;
+}
+
+.contact-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.directions-section {
+    padding: 50px 0;
+}
+
+.directions-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.directions-content {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.offer-section {
+    padding: 50px 0;
+}
+
+.offer-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.offer-item {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 10px;
 }
