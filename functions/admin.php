@@ -1,6 +1,6 @@
 <?php
-session_start();
-
+include_once ("./config.php");
+include ("../header.php");
 if (isset($_POST['submit-view'])) {
     $option = $_POST['option-view'];
 
@@ -30,11 +30,7 @@ if (isset($_POST['submit-view'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
     <title>Panel administracyjny</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
 <h1 class="text-center my-5 px3">Panel administracyjny</h1>
@@ -64,5 +60,6 @@ if (isset($_POST['submit-view'])) {
         </select>
         <button class="btn btn-primary mt-2" type="submit" name="submit-view">Wybierz</button>
     </div>
+</form>
 </body>
 </html>

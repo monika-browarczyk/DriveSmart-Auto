@@ -1,5 +1,7 @@
 <?php
-session_start();
+if(!isset($_SESSION)) {
+    session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -7,15 +9,16 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="/favicon.svg">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-vpYdO1GJgZ2oWRPIu8B4DHvbz7U1Z5jb8sH3C/uvFV5F+3X9Wj6k8nznPSAOWAfg" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
     <header class="navbar navbar-expand-lg navbar-dark bg-dark py-4 px-5">
-        <a class="navbar-brand" href="#">DriveSmart Auto</a>
+        <a class="navbar-brand" href="/index.php">DriveSmart Auto</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

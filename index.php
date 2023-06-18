@@ -35,14 +35,27 @@ include './header.php';
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <div class="container">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non metus eget dolor lobortis tincidunt
-            vitae et lorem. Integer condimentum ipsum nec tellus fringilla, et fringilla lorem tincidunt. Aenean
-            lobortis sem at consectetur viverra. Fusce sagittis nisl dolor, vel tincidunt risus efficitur id. Nullam
-            aliquam mauris mi, et convallis felis gravida in.
-        </p>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Z nami stać cię na lepsze auto</h1>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check"></i> Nasi doświadczeni, certyfikowani konsultanci finansowi zaoferują Państwu niezależną poradę finansową na podstawie pisemnej oferty finansowej od konkurencji</li>
+                    <li><i class="fas fa-check"></i> Ocenią korzyści sfinansowania samochodu oraz innych usług</li>
+                    <li><i class="fas fa-check"></i> Nasze usługi obejmują również kompleksową obsługę formalności związanych z zakupem, finansowaniem i ubezpieczeniem auta</li>
+                    <li><i class="fas fa-check"></i> Zaufało nam już tysiące klientów, którzy skorzystali z naszych usług i cieszą się lepszymi samochodami</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h1>Zapłacimy gotówką za Twoje auto w każdym czasie.</h1>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check"></i> Tylko u nas otrzymasz najkorzystniejszą, rynkową wycenę skupu za swoje auto oraz pieniądze w gotówce</li>
+                    <li><i class="fas fa-check"></i> Samochód przyjedziemy odkupić od Ciebie nawet z pod domu</li>
+                    <li><i class="fas fa-check"></i> Działamy szybko i profesjonalnie, zapewniając pełne bezpieczeństwo i transparentność transakcji</li>
+                    <li><i class="fas fa-check"></i> Jesteśmy liderem na rynku skupu samochodów i gwarantujemy uczciwe i sprawiedliwe warunki sprzedaży</li>
+                </ul>
+            </div>
+        </div>
     </div>
-
 <?php
 include './footer.php';

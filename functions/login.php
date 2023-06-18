@@ -1,11 +1,12 @@
 <?php
-global $mysql;
 global $db;
-include("./config.php");
+global $mysql;
 
-session_start();
+include("./config.php");
+include ("../header.php");
+
 if(isset($_SESSION['logged'])) {
-    header('Location: admin.php');
+    header('Location: /functions/admin.php');
 }
 if (isset($_POST['zaloguj'])) {
     $login = $_POST['login'];
@@ -34,11 +35,8 @@ if (isset($_POST['zaloguj'])) {
     }
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
+
     <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -54,8 +52,5 @@ if (isset($_POST['zaloguj'])) {
         <button type="submit" name="zaloguj" class="btn btn-primary">Zaloguj</button>
     </form>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>

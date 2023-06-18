@@ -122,16 +122,9 @@ $stmt->execute($params);
 $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filtracja</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
-
 <body>
 <div class="container">
     <h1>Znajdź samochód dla siebie</h1>
@@ -243,10 +236,10 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $car['Model']; ?></h5>
                         </a>
-                            <p class="card-text">Production Year: <?php echo $car['Production_year']; ?></p>
-                            <p class="card-text">Mileage: <?php echo $car['Mileage']; ?></p>
-                            <p class="card-text">Manufacturer: <?php echo $car['Manufacturer_name']; ?></p>
-                            <p class="card-text">Category: <?php echo $car['Name']; ?></p>
+                            <p class="card-text">Rok produkcji: <?php echo $car['Production_year']; ?></p>
+                            <p class="card-text">Przebieg: <?php echo $car['Mileage']; ?></p>
+                            <p class="card-text">Producent: <?php echo $car['Manufacturer_name']; ?></p>
+                            <p class="card-text">Kategoria: <?php echo $car['Name']; ?></p>
                         </div>
                     </div>
                 </div>
@@ -254,13 +247,8 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         </div>
     <?php } else { ?>
-        <p>No cars matching the filter criteria.</p>
+        <p>Żadne samochody nie spełniają kryteriów</p>
     <?php } ?>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
-
-</html>
+<?php include_once '../footer.php'; ?>

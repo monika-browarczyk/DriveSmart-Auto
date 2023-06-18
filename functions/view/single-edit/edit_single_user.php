@@ -1,14 +1,5 @@
-<html lang="pl">
-<head>
-    <title>Edytuj użytkownika</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container w-50 my-5 mx-auto">
-    <a class="btn btn-info mb-5" href="/index.php" type="button"><- Strona Główna</a>
-    <h1>Edytuj użytkownika</h1>
-
     <?php
+    global $mysql;
     $id = $_GET["id"];
     include_once("../../config.php");    $stmt = $mysql->prepare("SELECT users.*, roles.Name AS Role_name, employees.First_name, employees.Last_name FROM users 
         LEFT JOIN roles ON users.Roles_RolesID = roles.RolesID
@@ -31,6 +22,12 @@
     }
     ?>
 
+    <title>Edytuj użytkownika</title>
+    </head>
+    <body>
+    <div class="container w-50 my-5 mx-auto">
+        <a class="btn btn-info mb-5" href="/index.php" type="button"><- Strona Główna</a>
+        <h1>Edytuj użytkownika</h1>
     <form method="POST">
         <div class="form-group">
             <label for="login">Login użytkownika:</label>
@@ -51,5 +48,4 @@
         <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
     </form>
 </div>
-</body>
-</html>
+
