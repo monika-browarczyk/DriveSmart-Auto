@@ -55,6 +55,14 @@ $sql = "SELECT Cars.*, Manufacturers.Manufacturer_name, Categories.Name
         JOIN Categories ON Cars.CategoryID = Categories.CategoryID
         WHERE 1=1";
 
+if (array_key_exists('CategoryID', $_GET)) {
+    $categoryID = $_GET['CategoryID'];
+    if (!empty($categoryID)) {
+        $sql .= " AND Categories.CategoryID = :CategoryID";
+        $params[':CategoryID'] = $categoryID;
+    }
+}
+
 $params = array();
 
 if (!empty($model)) {
@@ -124,9 +132,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filtracja</title>
-</head>
-<body>
-<div class="container">
+<div class="container mb-5">
     <h1>Znajdź samochód dla siebie</h1>
 
     <form method="post">
@@ -221,8 +227,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php } ?>
             </select>
         </div>
-
-        <button type="submit" class="btn btn-primary">Filtruj</button>
+        <button type="submit" class="btn btn-primary mb-3">Filtruj</button>
     </form>
 
     <hr>
@@ -230,7 +235,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php if (!empty($cars)) { ?>
         <div class="row">
             <?php foreach ($cars as $car) { ?>
-                <div class="col-md-4">
+                <div class="col-md-4 mt-5">
                     <div class="card mb-3">
                         <a href="/functions/view/single-view/view_single_car.php?id=<?php echo $car['CarID']; ?>">
                         <div class="card-body">
@@ -250,5 +255,5 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <p>Żadne samochody nie spełniają kryteriów</p>
     <?php } ?>
 </div>
-</body>
+
 <?php include_once '../footer.php'; ?>
