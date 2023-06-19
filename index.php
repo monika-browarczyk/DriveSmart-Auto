@@ -1,5 +1,7 @@
 <?php
 include './header.php';
+include './functions/config.php';
+global $mysql;
 ?>
 
 <body class="home">
@@ -57,5 +59,54 @@ include './header.php';
             </div>
         </div>
     </div>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Klienci</h1>
+        <div class="input-group rounded mb-5">
+        </div>
+
+        <?php
+        $stmt = $mysql->query("SELECT * FROM Categories");
+
+        $columnsPerRow = 2;
+
+        $rowCount = 0;
+        while ($row = $stmt->fetch_assoc()) {
+            if ($rowCount % $columnsPerRow === 0) {
+                echo '<div class="row">';
+            }
+
+            echo '<div class="col-md-6 px-5">';
+            echo '<div class="card mb-5 category-card">';
+            echo '<img src="' . $row["ImagePath"] . '" class="card-img-top" alt="Obrazek">';
+            echo '<div class="card-body">';
+            echo '<h5 class="card-title">' . $row["Name"] . '</h5>';
+            echo '<p class="card-text">Liczba samochodów: ' . getCarCountByCategoryId($mysql, $row["CategoryID"]) . '</p>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+
+            $rowCount++;
+
+            if ($rowCount % $columnsPerRow === 0) {
+                echo '</div>';
+            }
+        }
+
+        if ($rowCount % $columnsPerRow !== 0) {
+            echo '</div>';
+        }
+
+        function getCarCountByCategoryId($mysql, $categoryId) {
+            $stmt = $mysql->prepare("SELECT COUNT(*) as count FROM Cars WHERE CategoryID = ?");
+            $stmt->bind_param("i", $categoryId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            return $row["count"];
+        }
+        ?>
+
+    </div>
+
 <?php
 include './footer.php';

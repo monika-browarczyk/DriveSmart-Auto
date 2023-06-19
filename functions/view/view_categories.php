@@ -4,7 +4,7 @@ include("../config.php");
 include ("../../header.php");
 ?>
 
-    <title>Lab10</title>
+    <title>Zobacz kategorie</title>
 </head>
 <body>
 <div class="container py-5">
