@@ -1,4 +1,4 @@
 <?php
-$db = new PDO('mysql:host=localhost;dbname=wprg-project', 'root', '');
-$mysql = new mysqli("localhost", "root", '', "wprg-project");
+$db = new PDO('mysql:host=/hostname;dbname=', '', '');
+$mysql = new mysqli("", "", '', "");
 $db->query('SET NAMES utf8mb4');
