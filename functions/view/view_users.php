@@ -1,6 +1,7 @@
 <?php
 global $mysql;
 include("../config.php");
+include ("../../header.php");
 ?>
 <html lang="pl">
 <head>
@@ -66,3 +67,6 @@ include("../config.php");
 </div>
 </body>
 </html>
+<?php
+include ("../../footer.php");
+?>

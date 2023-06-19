@@ -1,6 +1,7 @@
 <?php
 global $mysql;
 include("../../config.php");
+include("../../../header.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST["id"];
@@ -37,11 +38,7 @@ if (isset($_GET["id"])) {
 }
 ?>
 
-<html lang="pl">
-<head>
     <title>Edytuj osobę</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container py-5">
@@ -87,5 +84,6 @@ if (isset($_GET["id"])) {
         <input type="submit" class="btn btn-primary" value="Zapisz zmiany">
     </form>
 </div>
-</body>
-</html>
+
+<?php include("../../../footer.php"); ?>
+

@@ -1,6 +1,7 @@
 <?php
 global $mysql;
 include("../../config.php");
+include("../../../header.php");
 
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
@@ -30,11 +31,7 @@ if (isset($_GET["id"])) {
 }
 ?>
 
-<html lang="pl">
-<head>
     <title>Usuń osobę</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container py-5 mx-auto">
@@ -46,5 +43,5 @@ if (isset($_GET["id"])) {
         <a href="/functions/view/view_roles.php" class="btn btn-secondary">Anuluj</a>
     </form>
 </div>
-</body>
-</html>
+
+<?php include("../../../footer.php"); ?>

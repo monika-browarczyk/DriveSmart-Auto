@@ -1,11 +1,10 @@
 <?php
 global $mysql;
 include("../../config.php");
+include("../../../header.php");
 ?>
-<html lang="pl">
-<head>
+
     <title>Edycja adresu</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container w-50 my-5 mx-auto">
@@ -28,7 +27,6 @@ include("../../config.php");
         $streetNumber = $_POST["street_number"];
         $postCode = $_POST["post_code"];
 
-        // Walidacja pól
         if (empty($city)) {
             $cityError = "Pole Miasto jest wymagane";
         }
@@ -80,5 +78,5 @@ include("../../config.php");
         <a class="btn btn-secondary" href="/functions/view/view_addresses.php">Powrót</a>
     </form>
 </div>
-</body>
-</html>
+
+<?php include("../../../footer.php"); ?>

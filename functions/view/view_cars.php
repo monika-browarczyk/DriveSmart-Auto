@@ -1,16 +1,12 @@
 <?php
 global $mysql;
 include("../config.php");
+include ("../../header.php");
 ?>
 
-
-<html lang="pl">
-<head>
     <title>Lab10</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
+<>
 <div class="container py-5">
     <h1 class="text-center mb-5">Samochody</h1>
     <div class="d-flex justify-content-between mb-3">
@@ -69,5 +65,4 @@ include("../config.php");
         </tbody>
     </table>
 </div>
-</body>
-</html>
+<?php include("../../footer.php"); ?>

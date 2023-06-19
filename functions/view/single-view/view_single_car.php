@@ -1,14 +1,10 @@
 <?php
 global $mysql;
 include("../../config.php");
-include '../../../header.php';
-
+include("../../../header.php");
 ?>
 
-<html lang="pl">
-<head>
     <title>Informacje o samochodzie</title>
-    <link rel="stylesheet" href="https://stackpath.bootst`rapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container w-50 my-5 mx-auto">
@@ -82,5 +78,5 @@ include '../../../header.php';
         </tbody>
     </table>
 </div>
-</body>
-</html>
+
+<?php include("../../../footer.php"); ?>

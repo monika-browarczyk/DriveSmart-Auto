@@ -1,6 +1,7 @@
 <?php
 global $mysql;
 include("../config.php");
+include("../../header.php");
 
 if(!isset($_SESSION)){
     session_start();
@@ -27,11 +28,7 @@ if (isset($_GET["search"])) {
 }
 ?>
 
-<html lang="pl">
-<head>
     <title>Lista producentów</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container py-5">
@@ -72,5 +69,4 @@ if (isset($_GET["search"])) {
         </tbody>
     </table>
 </div>
-</body>
-</html>
+<?php include("../../footer.php"); ?>

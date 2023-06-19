@@ -1,6 +1,7 @@
 <?php
 global $mysql;
 include("../../config.php");
+include("../../../header.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
@@ -15,11 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<html lang="pl">
-<head>
     <title>Dodaj rolę</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container py-5">
@@ -36,5 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" class="btn btn-primary" value="Dodaj rolę">
     </form>
 </div>
-</body>
-</html>
+
+<?php include("../../../footer.php"); ?>
+

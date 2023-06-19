@@ -1,6 +1,7 @@
 <?php
 global $mysql;
 include("../../config.php");
+include("../../../header.php");
 
 $imie = "";
 $nazwisko = "";
@@ -26,9 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
-    $stmt = $mysql->prepare("SELECT clients.ClientID, clients.First_name, clients.Last_name, clients.Telephone_number, clients.Email, offers.CarID, Addresses.AddressID, Addresses.City, Addresses.Street, Addresses.Street_number, Addresses.Post_code FROM Clients 
+    $stmt = $mysql->prepare("SELECT clients.ClientID, clients.First_name, clients.Last_name, clients.Telephone_number, clients.Email,Addresses.AddressID, Addresses.City, Addresses.Street, Addresses.Street_number, Addresses.Post_code FROM Clients 
                         LEFT JOIN addresses ON clients.Addresses_AddressID = Addresses.AddressID
-                        LEFT JOIN offers ON clients.ClientID = offers.Clients_ClientID
                         WHERE clients.ClientID = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -43,11 +43,8 @@ if (isset($_GET["id"])) {
 }
 ?>
 
-<html lang="pl">
-<head>
+
     <title>Edytuj osobę</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container py-5">
@@ -87,5 +84,6 @@ if (isset($_GET["id"])) {
         <input type="submit" class="btn btn-primary" value="Zapisz zmiany">
     </form>
 </div>
-</body>
-</html>
+
+<?php include("../../../footer.php"); ?>
+

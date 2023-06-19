@@ -1,12 +1,10 @@
 <?php
 global $mysql;
 include("../../config.php");
+include("../../../header.php");
 ?>
 
-<html lang="pl">
-<head>
     <title>Pojedynczy adres</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container w-50 my-5 mx-auto">
@@ -49,5 +47,5 @@ include("../../config.php");
 
     <a class="btn btn-secondary" href="/functions/view/view_addresses.php">Powrót</a>
 </div>
-</body>
-</html>
+
+<?php include("../../../footer.php"); ?>

@@ -1,15 +1,18 @@
-<html lang="pl">
-<head>
+<?php
+global $mysql;
+include_once("../../config.php");
+include("../../../header.php");
+?>
+
     <title>Informacje o użytkowniku</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container w-50 my-5 mx-auto">
     <a class="btn btn-info mb-5" href="/index.php" type="button"><- Strona Główna</a>
-    <h1>Dane o samochodzie:
+    <h1>Dane o użytkowniku
         <?php
         $id = $_GET["id"];
-        include_once("../../config.php");        $stmt = $mysql->prepare("SELECT users.Login, roles.Name as Role_name, employees.EmployeeID, employees.First_name, employees.Last_name FROM `users` 
+        $stmt = $mysql->prepare("SELECT users.Login, roles.Name as Role_name, employees.EmployeeID, employees.First_name, employees.Last_name FROM `users` 
             LEFT JOIN employees ON users.Employees_EmployeeID = employees.EmployeeID
             LEFT JOIN roles ON users.Roles_RolesID = roles.RolesID
             WHERE UserID = ? 
@@ -18,7 +21,7 @@
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
-        echo $row["Login"] . " " . $row["Role_name"];
+        echo $row["Login"];
         ?>
     </h1>
 
@@ -47,5 +50,5 @@
         </tbody>
     </table>
 </div>
-</body>
-</html>
+
+<?php include("../../../footer.php"); ?>

@@ -1,5 +1,8 @@
 <?php
+global $mysql;
 include_once("../../config.php");
+include("../../../header.php");
+
 $city = $street = $streetNumber = $postCode = "";
 $errors = [];
 
@@ -38,11 +41,7 @@ function validatePostCode($postCode)
 
 ?>
 
-<html lang="pl">
-<head>
     <title>Dodaj adres</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container py-5">
@@ -77,5 +76,4 @@ function validatePostCode($postCode)
         <a href="/functions/view/view_addresses.php" class="btn btn-secondary">Powrót</a>
     </form>
 </div>
-</body>
-</html>
+<?php include("../../../footer.php"); ?>

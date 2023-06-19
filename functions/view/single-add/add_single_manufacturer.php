@@ -1,5 +1,8 @@
 <?php
+global $mysql;
 include_once("../../config.php");
+include("../../../header.php");
+
 if (isset($_POST["submit"])) {
     $manufacturerName = $_POST["manufacturer_name"];
     $registrationDate = $_POST["registration_date"];
@@ -17,11 +20,7 @@ if (isset($_POST["submit"])) {
 }
 ?>
 
-<html lang="pl">
-<head>
     <title>Dodaj producenta</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container py-5">
@@ -47,5 +46,6 @@ if (isset($_POST["submit"])) {
     </form>
     <a href="/functions/view/view_manufacturers.php" class="btn btn-secondary">Powrót</a>
 </div>
-</body>
-</html>
+
+<?php include("../../../footer.php"); ?>
+
