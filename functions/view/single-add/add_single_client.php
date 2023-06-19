@@ -44,11 +44,11 @@ if (isset($_GET["id"])) {
 ?>
 
 
-    <title>Edytuj osobę</title>
+    <title>Dodaj osobę</title>
 </head>
 <body>
 <div class="container py-5">
-    <h1 class="text-center mb-5">Edytuj osobę</h1>
+    <h1 class="text-center mb-5">Dodaj osobę</h1>
     <form method="post">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
         <div class="form-group">
@@ -86,4 +86,3 @@ if (isset($_GET["id"])) {
 </div>
 
 <?php include("../../../footer.php"); ?>
-

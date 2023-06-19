@@ -4,7 +4,7 @@ include("../../config.php");
 include("../../../header.php");
 ?>
 
-    <title>Pojedyncza osoba</title>
+<title>Pojedyncza osoba</title>
 </head>
 <body>
 <div class="container w-50 my-5 mx-auto">
@@ -13,14 +13,16 @@ include("../../../header.php");
         <?php
         $id = $_GET["id"];
         $stmt = $mysql->prepare("SELECT clients.ClientID, clients.First_name, clients.Last_name, clients.Telephone_number, clients.Email, Addresses.AddressID, Addresses.City, 
-       Addresses.Street, Addresses.Street_number, Addresses.Post_code, offers.CarID FROM Clients 
+       Addresses.Street, Addresses.Street_number, Addresses.Post_code FROM Clients 
                         LEFT JOIN addresses ON clients.Addresses_AddressID = Addresses.AddressID
-                        JOIN offers ON clients.ClientID = offers.Clients_ClientID
                         WHERE clients.ClientID = ?");
-        var_dump($stmt);
+        $stmt2 = $mysql->prepare("SELECT CarID FROM Offers WHERE Clients_ClientID = ?");
         $stmt->bind_param("i", $id);
+        $stmt2->bind_param("i", $id);
         $stmt->execute();
+        $stmt2->execute();
         $result = $stmt->get_result();
+        $result2 = $stmt2->get_result();
         $row = $result->fetch_assoc();
         echo $row["First_name"] . " " . $row["Last_name"];
         ?>
@@ -30,35 +32,35 @@ include("../../../header.php");
         <tbody>
         <tr>
             <td>Imię:</td>
-            <td><?php echo ($row["First_name"] ? $row["First_name"] : "brak")?></td>
+            <td><?php echo($row["First_name"] ? $row["First_name"] : "brak") ?></td>
         </tr>
         <tr>
             <td>Nazwisko:</td>
-            <td><?php echo ($row["Last_name"] ? $row["Last_name"] : "brak")?></td>
+            <td><?php echo($row["Last_name"] ? $row["Last_name"] : "brak") ?></td>
         </tr>
         <tr>
             <td>Pesel:</td>
-            <td><?php echo ($row["Telephone_number"] ? $row["Telephone_number"] : "brak")?></td>
+            <td><?php echo($row["Telephone_number"] ? $row["Telephone_number"] : "brak") ?></td>
         </tr>
         <tr>
             <td>Data urodzenia:</td>
-            <td><?php echo ($row["Email"] ? $row["Email"] : "brak")?></td>
+            <td><?php echo($row["Email"] ? $row["Email"] : "brak") ?></td>
         </tr>
         <tr>
             <td>Adres:</td>
             <td><?php
                 $address = '';
                 if ($row["City"]) {
-                    $address .= $row["City"].', ';
+                    $address .= $row["City"] . ', ';
                 }
                 if ($row["Street"]) {
-                    $address .= $row["Street"].', ';
+                    $address .= $row["Street"] . ', ';
                 }
                 if ($row["Street_number"]) {
-                    $address .= $row["Street_number"].', ';
+                    $address .= $row["Street_number"] . ', ';
                 }
                 if ($row["Post_code"]) {
-                    $address .= $row["Post_code"].', ';
+                    $address .= $row["Post_code"] . ', ';
                 }
                 echo ($address !== '') ? rtrim($address, ', ') : 'brak';
                 ?>

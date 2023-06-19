@@ -21,8 +21,11 @@ if (isset($_GET["search"])) {
 <body>
 <div class="container py-5">
     <h1 class="text-center mb-5">Adresy</h1>
-    <div class="d-flex justify-content-between mb-3">
-        <a href="/functions/view/single-add/add_single_address.php" class="btn btn-success btn-sm d-flex align-items-center justify-content-center mb-3 w-25">Dodaj</a>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <?php
+        if ($_SESSION['logged'] == '1') { ?>
+        <a href="single-add/add_single_address.php" class="btn btn-success btn-sm d-flex align-items-center justify-content-center mb-3 w-25">Dodaj</a>
+        <?php } ?>
         <form class="form-inline w-75 ml-5">
             <input type="text" class="form-control rounded w-75" name="search" placeholder="Search">
             <input type="submit" class="btn btn-outline-dark w-25" value="Search">
