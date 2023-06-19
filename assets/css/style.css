@@ -242,8 +242,12 @@ textarea {
 }
 
 .about-section {
-    padding: 50px 0;
-    background-color: #f8f9fa;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    padding: 50px 20px;
+    background-color: #bbd7e0;
+    border: 1px solid #1385ab;
+    border-radius: 25px;
 }
 
 .about-heading {
@@ -270,6 +274,7 @@ textarea {
     width: 200px;
     height: 200px;
     border-radius: 50%;
+    border: 1px solid #1385ab;
     object-fit: cover;
     margin-bottom: 15px;
 }
@@ -286,7 +291,12 @@ textarea {
 }
 
 .contact-section {
-    padding: 50px 0;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    padding: 50px 20px;
+    background-color: #bbd7e0;
+    border: 1px solid #1385ab;
+    border-radius: 25px;
 }
 
 .contact-heading {
@@ -301,8 +311,12 @@ textarea {
 }
 
 .directions-section {
-    padding: 50px 0;
-}
+    margin-top: 90px;
+    margin-bottom: 70px;
+    padding: 50px 20px;
+    background-color: #bbd7e0;
+    border: 1px solid #1385ab;
+    border-radius: 25px;}
 
 .directions-heading {
     font-size: 24px;
@@ -316,7 +330,12 @@ textarea {
 }
 
 .offer-section {
-    padding: 50px 0;
+    margin-top: 90px;
+    margin-bottom: 70px;
+    padding: 50px 20px;
+    background-color: #bbd7e0;
+    border: 1px solid #1385ab;
+    border-radius: 25px;
 }
 
 .offer-heading {
